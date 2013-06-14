@@ -5,6 +5,7 @@ import br.com.instaweb.jenkins.monitor.ui.tray.Icon;
 
 public enum BuildState {
 
+	unknown(Icon.LOADING),
 	disabled(Icon.GRAY),
 	aborted(Icon.GRAY),
 	aborted_anime(Icon.GRAY_ANIMATED),

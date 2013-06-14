@@ -5,6 +5,8 @@ import java.util.logging.Logger;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
 
+import com.google.inject.Inject;
+
 import br.com.instaweb.jenkins.monitor.bean.BuildInfo;
 import br.com.instaweb.jenkins.monitor.utils.Resources;
 
@@ -14,6 +16,7 @@ public class JenkinsRestServiceClient implements JenkinsService{
 	private final String url;
 	private static Logger logger = Logger.getLogger(JenkinsRestServiceClient.class.getName());
 
+	@Inject
 	public JenkinsRestServiceClient(Client client, Resources resources) {
 		this.client = client;
 		this.url = resources.text("/url.txt");

@@ -7,13 +7,15 @@ import br.com.instaweb.jenkins.monitor.bean.BuildState;
 import br.com.instaweb.jenkins.monitor.service.JenkinsService;
 
 import com.google.common.eventbus.EventBus;
+import com.google.inject.Inject;
 
 public class CheckStatusTask extends TimerTask{
 
 	private EventBus eventBus;
 	private JenkinsService service;
-	private BuildState lastBuild = null;
+	private BuildState lastBuild = BuildState.unknown;
 	
+	@Inject
 	public CheckStatusTask(EventBus eventBus, JenkinsService client) {
 		this.eventBus = eventBus;
 		this.service = client;
@@ -29,11 +31,7 @@ public class CheckStatusTask extends TimerTask{
 	}
 	
 	private boolean buildStatusHasChanged(BuildInfo info){
-		return hasPreviousBuildStatus() && info.getState() != lastBuild;
-	}
-	
-	private boolean hasPreviousBuildStatus(){
-		return lastBuild != null;
+		return info.getState() != lastBuild;
 	}
 
 }

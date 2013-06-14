@@ -1,7 +1,6 @@
 package br.com.instaweb.jenkins.monitor.tasks.status;
 
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -36,10 +35,9 @@ public class CheckStatusTaskTest {
 	public void buildStatusHasNotChanged() throws Exception {
 		executeBuilds(new BuildInfo[]{
 			success(),
-			success(),
 			success()
 		});
-		verify(eventBus, never()).post(Mockito.anyObject());
+		verify(eventBus, times(1)).post(Mockito.anyObject());
 	}
 
 	@Test
@@ -48,7 +46,7 @@ public class CheckStatusTaskTest {
 			success(),
 			aborted()
 		});
-		verify(eventBus, times(1)).post(Mockito.anyObject());
+		verify(eventBus, times(2)).post(Mockito.anyObject());
 	}
 	
 	@Test
@@ -61,7 +59,7 @@ public class CheckStatusTaskTest {
 			aborted(),
 			aborted()
 		});
-		verify(eventBus, times(1)).post(Mockito.anyObject());
+		verify(eventBus, times(2)).post(Mockito.anyObject());
 	}
 
 	@Test
@@ -72,7 +70,7 @@ public class CheckStatusTaskTest {
 			aborted(),
 			success()
 		});
-		verify(eventBus, times(2)).post(Mockito.anyObject());
+		verify(eventBus, times(3)).post(Mockito.anyObject());
 	}
 
 	@Test
@@ -85,7 +83,7 @@ public class CheckStatusTaskTest {
 			aborted(),
 			success()		
 		});
-		verify(eventBus, times(4)).post(Mockito.anyObject());
+		verify(eventBus, times(5)).post(Mockito.anyObject());
 	}
 	
 	private static BuildInfo success(){
