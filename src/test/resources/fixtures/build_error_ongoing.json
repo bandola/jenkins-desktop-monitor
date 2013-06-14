@@ -1,0 +1,373 @@
+{
+  "actions" : [
+    {
+      
+    },
+    {
+      
+    }
+  ],
+  "description" : "",
+  "displayName" : "marcopolo-spv",
+  "displayNameOrNull" : null,
+  "name" : "marcopolo-spv",
+  "url" : "http://s028:8080/job/marcopolo-spv/",
+  "buildable" : true,
+  "builds" : [
+    {
+      "number" : 307,
+      "url" : "http://s028:8080/job/marcopolo-spv/307/"
+    },
+    {
+      "number" : 306,
+      "url" : "http://s028:8080/job/marcopolo-spv/306/"
+    },
+    {
+      "number" : 305,
+      "url" : "http://s028:8080/job/marcopolo-spv/305/"
+    },
+    {
+      "number" : 304,
+      "url" : "http://s028:8080/job/marcopolo-spv/304/"
+    },
+    {
+      "number" : 303,
+      "url" : "http://s028:8080/job/marcopolo-spv/303/"
+    },
+    {
+      "number" : 302,
+      "url" : "http://s028:8080/job/marcopolo-spv/302/"
+    },
+    {
+      "number" : 301,
+      "url" : "http://s028:8080/job/marcopolo-spv/301/"
+    },
+    {
+      "number" : 300,
+      "url" : "http://s028:8080/job/marcopolo-spv/300/"
+    },
+    {
+      "number" : 299,
+      "url" : "http://s028:8080/job/marcopolo-spv/299/"
+    },
+    {
+      "number" : 298,
+      "url" : "http://s028:8080/job/marcopolo-spv/298/"
+    },
+    {
+      "number" : 297,
+      "url" : "http://s028:8080/job/marcopolo-spv/297/"
+    },
+    {
+      "number" : 296,
+      "url" : "http://s028:8080/job/marcopolo-spv/296/"
+    },
+    {
+      "number" : 295,
+      "url" : "http://s028:8080/job/marcopolo-spv/295/"
+    },
+    {
+      "number" : 293,
+      "url" : "http://s028:8080/job/marcopolo-spv/293/"
+    },
+    {
+      "number" : 291,
+      "url" : "http://s028:8080/job/marcopolo-spv/291/"
+    },
+    {
+      "number" : 290,
+      "url" : "http://s028:8080/job/marcopolo-spv/290/"
+    },
+    {
+      "number" : 289,
+      "url" : "http://s028:8080/job/marcopolo-spv/289/"
+    },
+    {
+      "number" : 288,
+      "url" : "http://s028:8080/job/marcopolo-spv/288/"
+    },
+    {
+      "number" : 287,
+      "url" : "http://s028:8080/job/marcopolo-spv/287/"
+    },
+    {
+      "number" : 286,
+      "url" : "http://s028:8080/job/marcopolo-spv/286/"
+    },
+    {
+      "number" : 285,
+      "url" : "http://s028:8080/job/marcopolo-spv/285/"
+    },
+    {
+      "number" : 284,
+      "url" : "http://s028:8080/job/marcopolo-spv/284/"
+    },
+    {
+      "number" : 283,
+      "url" : "http://s028:8080/job/marcopolo-spv/283/"
+    },
+    {
+      "number" : 282,
+      "url" : "http://s028:8080/job/marcopolo-spv/282/"
+    },
+    {
+      "number" : 281,
+      "url" : "http://s028:8080/job/marcopolo-spv/281/"
+    },
+    {
+      "number" : 280,
+      "url" : "http://s028:8080/job/marcopolo-spv/280/"
+    },
+    {
+      "number" : 279,
+      "url" : "http://s028:8080/job/marcopolo-spv/279/"
+    },
+    {
+      "number" : 272,
+      "url" : "http://s028:8080/job/marcopolo-spv/272/"
+    },
+    {
+      "number" : 271,
+      "url" : "http://s028:8080/job/marcopolo-spv/271/"
+    },
+    {
+      "number" : 270,
+      "url" : "http://s028:8080/job/marcopolo-spv/270/"
+    },
+    {
+      "number" : 269,
+      "url" : "http://s028:8080/job/marcopolo-spv/269/"
+    },
+    {
+      "number" : 268,
+      "url" : "http://s028:8080/job/marcopolo-spv/268/"
+    },
+    {
+      "number" : 267,
+      "url" : "http://s028:8080/job/marcopolo-spv/267/"
+    },
+    {
+      "number" : 266,
+      "url" : "http://s028:8080/job/marcopolo-spv/266/"
+    },
+    {
+      "number" : 264,
+      "url" : "http://s028:8080/job/marcopolo-spv/264/"
+    },
+    {
+      "number" : 261,
+      "url" : "http://s028:8080/job/marcopolo-spv/261/"
+    },
+    {
+      "number" : 260,
+      "url" : "http://s028:8080/job/marcopolo-spv/260/"
+    },
+    {
+      "number" : 258,
+      "url" : "http://s028:8080/job/marcopolo-spv/258/"
+    },
+    {
+      "number" : 257,
+      "url" : "http://s028:8080/job/marcopolo-spv/257/"
+    },
+    {
+      "number" : 256,
+      "url" : "http://s028:8080/job/marcopolo-spv/256/"
+    },
+    {
+      "number" : 255,
+      "url" : "http://s028:8080/job/marcopolo-spv/255/"
+    },
+    {
+      "number" : 254,
+      "url" : "http://s028:8080/job/marcopolo-spv/254/"
+    },
+    {
+      "number" : 251,
+      "url" : "http://s028:8080/job/marcopolo-spv/251/"
+    },
+    {
+      "number" : 250,
+      "url" : "http://s028:8080/job/marcopolo-spv/250/"
+    },
+    {
+      "number" : 249,
+      "url" : "http://s028:8080/job/marcopolo-spv/249/"
+    },
+    {
+      "number" : 248,
+      "url" : "http://s028:8080/job/marcopolo-spv/248/"
+    },
+    {
+      "number" : 247,
+      "url" : "http://s028:8080/job/marcopolo-spv/247/"
+    },
+    {
+      "number" : 239,
+      "url" : "http://s028:8080/job/marcopolo-spv/239/"
+    },
+    {
+      "number" : 238,
+      "url" : "http://s028:8080/job/marcopolo-spv/238/"
+    },
+    {
+      "number" : 236,
+      "url" : "http://s028:8080/job/marcopolo-spv/236/"
+    },
+    {
+      "number" : 235,
+      "url" : "http://s028:8080/job/marcopolo-spv/235/"
+    },
+    {
+      "number" : 234,
+      "url" : "http://s028:8080/job/marcopolo-spv/234/"
+    },
+    {
+      "number" : 233,
+      "url" : "http://s028:8080/job/marcopolo-spv/233/"
+    },
+    {
+      "number" : 232,
+      "url" : "http://s028:8080/job/marcopolo-spv/232/"
+    },
+    {
+      "number" : 231,
+      "url" : "http://s028:8080/job/marcopolo-spv/231/"
+    },
+    {
+      "number" : 230,
+      "url" : "http://s028:8080/job/marcopolo-spv/230/"
+    },
+    {
+      "number" : 229,
+      "url" : "http://s028:8080/job/marcopolo-spv/229/"
+    },
+    {
+      "number" : 228,
+      "url" : "http://s028:8080/job/marcopolo-spv/228/"
+    },
+    {
+      "number" : 227,
+      "url" : "http://s028:8080/job/marcopolo-spv/227/"
+    },
+    {
+      "number" : 226,
+      "url" : "http://s028:8080/job/marcopolo-spv/226/"
+    },
+    {
+      "number" : 225,
+      "url" : "http://s028:8080/job/marcopolo-spv/225/"
+    },
+    {
+      "number" : 224,
+      "url" : "http://s028:8080/job/marcopolo-spv/224/"
+    },
+    {
+      "number" : 223,
+      "url" : "http://s028:8080/job/marcopolo-spv/223/"
+    },
+    {
+      "number" : 222,
+      "url" : "http://s028:8080/job/marcopolo-spv/222/"
+    },
+    {
+      "number" : 221,
+      "url" : "http://s028:8080/job/marcopolo-spv/221/"
+    },
+    {
+      "number" : 220,
+      "url" : "http://s028:8080/job/marcopolo-spv/220/"
+    },
+    {
+      "number" : 219,
+      "url" : "http://s028:8080/job/marcopolo-spv/219/"
+    },
+    {
+      "number" : 210,
+      "url" : "http://s028:8080/job/marcopolo-spv/210/"
+    },
+    {
+      "number" : 209,
+      "url" : "http://s028:8080/job/marcopolo-spv/209/"
+    },
+    {
+      "number" : 208,
+      "url" : "http://s028:8080/job/marcopolo-spv/208/"
+    },
+    {
+      "number" : 207,
+      "url" : "http://s028:8080/job/marcopolo-spv/207/"
+    },
+    {
+      "number" : 206,
+      "url" : "http://s028:8080/job/marcopolo-spv/206/"
+    },
+    {
+      "number" : 205,
+      "url" : "http://s028:8080/job/marcopolo-spv/205/"
+    },
+    {
+      "number" : 204,
+      "url" : "http://s028:8080/job/marcopolo-spv/204/"
+    }
+  ],
+  "color" : "red_anime",
+  "firstBuild" : {
+    "number" : 168,
+    "url" : "http://s028:8080/job/marcopolo-spv/168/"
+  },
+  "healthReport" : [
+    {
+      "description" : "Test Result: 0 tests failing out of a total of 82 tests.",
+      "iconUrl" : "health-80plus.png",
+      "score" : 100
+    },
+    {
+      "description" : "Build stability: No recent builds failed.",
+      "iconUrl" : "health-80plus.png",
+      "score" : 100
+    }
+  ],
+  "inQueue" : false,
+  "keepDependencies" : false,
+  "lastBuild" : {
+    "number" : 307,
+    "url" : "http://s028:8080/job/marcopolo-spv/307/"
+  },
+  "lastCompletedBuild" : {
+    "number" : 307,
+    "url" : "http://s028:8080/job/marcopolo-spv/307/"
+  },
+  "lastFailedBuild" : {
+    "number" : 300,
+    "url" : "http://s028:8080/job/marcopolo-spv/300/"
+  },
+  "lastStableBuild" : {
+    "number" : 307,
+    "url" : "http://s028:8080/job/marcopolo-spv/307/"
+  },
+  "lastSuccessfulBuild" : {
+    "number" : 307,
+    "url" : "http://s028:8080/job/marcopolo-spv/307/"
+  },
+  "lastUnstableBuild" : null,
+  "lastUnsuccessfulBuild" : {
+    "number" : 306,
+    "url" : "http://s028:8080/job/marcopolo-spv/306/"
+  },
+  "nextBuildNumber" : 308,
+  "property" : [
+    
+  ],
+  "queueItem" : null,
+  "concurrentBuild" : false,
+  "downstreamProjects" : [
+    
+  ],
+  "scm" : {
+    
+  },
+  "upstreamProjects" : [
+    
+  ]
+}
