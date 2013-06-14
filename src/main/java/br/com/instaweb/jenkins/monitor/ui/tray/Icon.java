@@ -6,6 +6,7 @@ import br.com.instaweb.jenkins.monitor.utils.Images;
 
 public enum Icon {
 
+	LOADING("/loading.gif"),
 	GREEN("/green.png"),
 	GREEN_ANIMATED("/green_anime.gif"),
 	RED("/red.gif"),
