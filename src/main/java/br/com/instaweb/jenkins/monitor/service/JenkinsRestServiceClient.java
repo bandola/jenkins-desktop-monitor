@@ -1,33 +1,58 @@
 package br.com.instaweb.jenkins.monitor.service;
 
-import java.util.logging.Logger;
+import static com.google.common.base.Preconditions.checkState;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
-
-import com.google.inject.Inject;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status.Family;
 
 import br.com.instaweb.jenkins.monitor.bean.BuildInfo;
 import br.com.instaweb.jenkins.monitor.utils.Resources;
 
+import com.google.inject.Inject;
+
 public class JenkinsRestServiceClient implements JenkinsService{
 
 	private Client client;
-	private final String url;
-	private static Logger logger = Logger.getLogger(JenkinsRestServiceClient.class.getName());
+	private final String statusUrl;
+	private final String buildUrl;
+	private final String enableUrl;
+	private final String disableUrl;
 
 	@Inject
 	public JenkinsRestServiceClient(Client client, Resources resources) {
 		this.client = client;
-		this.url = resources.text("/url.txt");
+		this.statusUrl = resources.text("/status.txt");
+		this.buildUrl = resources.text("/build.txt");
+		this.enableUrl = resources.text("/enable.txt");
+		this.disableUrl = resources.text("/disable.txt");
 	}
 
 	public BuildInfo getCurrentBuild() {
-		logger.info(String.format("Starting request to %s", url));
-		WebTarget target = client.target(url);
+		WebTarget target = client.target(statusUrl);
 		BuildInfo info = target.request().get(BuildInfo.class);
-		logger.info(String.format("Request completed. Result: %s", info));
 		return info;
 	}
-	
+
+	@Override
+	public void disableBuild() {
+		WebTarget target = client.target(disableUrl);
+		Response response = target.request().post(null);
+		checkState(response.getStatusInfo().getFamily() == Family.SUCCESSFUL, "Could not disable build.");
+	}
+
+	@Override
+	public void enableBuild() {
+		WebTarget target = client.target(enableUrl);
+		Response response = target.request().post(null);
+		checkState(response.getStatusInfo().getFamily() == Family.SUCCESSFUL, "Could not enable build.");
+	}
+
+	@Override
+	public void build() {
+		WebTarget target = client.target(buildUrl);
+		Response response = target.request().post(null);
+		checkState(response.getStatusInfo().getFamily() == Family.SUCCESSFUL, "Could not build.");
+	}
 }

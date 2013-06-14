@@ -5,4 +5,11 @@ import br.com.instaweb.jenkins.monitor.bean.BuildInfo;
 public interface JenkinsService {
 	 
 	BuildInfo getCurrentBuild();
+	
+	void disableBuild();
+
+	void enableBuild();
+	
+	void build();
+
 }
