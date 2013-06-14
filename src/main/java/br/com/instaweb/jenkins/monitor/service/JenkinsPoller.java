@@ -4,6 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.google.inject.Inject;
+import com.google.inject.name.Named;
 
 public class JenkinsPoller implements Runnable {
 
@@ -11,7 +12,7 @@ public class JenkinsPoller implements Runnable {
 	private final TimerTask task;
 
 	@Inject
-	public JenkinsPoller(@JenkinsPollerTask TimerTask pollTask) {
+	public JenkinsPoller(@Named("jenkinsPollerTask") TimerTask pollTask) {
 		this.task = pollTask;
 	}
 

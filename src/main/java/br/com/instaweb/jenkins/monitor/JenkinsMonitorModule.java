@@ -9,7 +9,6 @@ import javax.ws.rs.client.ClientBuilder;
 
 import org.glassfish.jersey.jackson.JacksonFeature;
 
-import br.com.instaweb.jenkins.monitor.service.JenkinsPollerTask;
 import br.com.instaweb.jenkins.monitor.service.JenkinsRestServiceClient;
 import br.com.instaweb.jenkins.monitor.service.JenkinsService;
 import br.com.instaweb.jenkins.monitor.tasks.status.CheckStatusTask;
@@ -20,8 +19,9 @@ import br.com.instaweb.jenkins.monitor.utils.Resources;
 
 import com.google.common.eventbus.EventBus;
 import com.google.inject.AbstractModule;
+import com.google.inject.name.Names;
 
-public class Module extends AbstractModule {
+public class JenkinsMonitorModule extends AbstractModule {
 
     @Override
     protected void configure() {
@@ -35,7 +35,7 @@ public class Module extends AbstractModule {
         bind(CheckStatusTask.class).in(SINGLETON);
         bind(JenkinsService.class).to(JenkinsRestServiceClient.class).in(SINGLETON);
         bind(JenkinsMonitor.class).in(SINGLETON);
-        bind(TimerTask.class).annotatedWith(JenkinsPollerTask.class).to(CheckStatusTask.class);
+        bind(TimerTask.class).annotatedWith(Names.named("jenkinsPollerTask")).to(CheckStatusTask.class);
         bind(EventBus.class).in(SINGLETON);
         bind(Client.class).toInstance(client);
     }

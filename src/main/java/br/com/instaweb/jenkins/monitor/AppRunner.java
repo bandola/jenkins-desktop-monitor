@@ -11,7 +11,7 @@ public class AppRunner {
 	
 	private static Injector injector; 
 	public static void main(String... args) throws Exception {
-		injector = Guice.createInjector(new Module(), Jsr250.newJsr250Module());
+		injector = Guice.createInjector(new JenkinsMonitorModule(), Jsr250.newJsr250Module());
 		invokeLater(startJenkinsMonitor());
 	}
  
