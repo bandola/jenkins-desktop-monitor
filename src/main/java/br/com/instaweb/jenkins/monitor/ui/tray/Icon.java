@@ -8,14 +8,14 @@ public enum Icon {
 
 	LOADING("/loading.gif"),
 	GREEN("/green.png"),
-	GREEN_ANIMATED("/green_anime.gif"),
-	RED("/red.gif"),
-	RED_ANIMATED("/red_anime.gif"),
+	GREEN_ANIMATED("/green_building.gif"),
+	RED("/red.png"),
+	RED_ANIMATED("/red_building.gif"),
 	UNKONWN("/gray.png"), 
 	GRAY("/gray.png"), 
-	GRAY_ANIMATED("/gray_anime.gif"),
+	GRAY_ANIMATED("/gray_building.gif"),
 	YELLOW("/yellow.png"),
-	YELLOW_ANIMATED("/yellow_anime.gif");
+	YELLOW_ANIMATED("/yellow_building.gif");
 	
 	private String filePath;
 	private Image image;

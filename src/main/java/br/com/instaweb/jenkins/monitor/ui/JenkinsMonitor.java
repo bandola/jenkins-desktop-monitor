@@ -6,8 +6,6 @@ import java.awt.TrayIcon;
 import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.SwingUtilities;
 
@@ -41,7 +39,6 @@ public class JenkinsMonitor{
 	private void init(){
 		icon = manager.createTrayIcon(Icon.LOADING);
 		SwingUtilities.invokeLater(poller);
-		icon.addMouseListener(new TrayIconMouseListener());
 		eventBus.register(new TrayIconUpdater());
 		
 		PopupMenu menu = new PopupMenu(); 
@@ -72,23 +69,23 @@ public class JenkinsMonitor{
 			}
 		});
 
+		MenuItem exit = new MenuItem("exit");
+		exit.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		
 		menu.add(disableBuild);
 		menu.add(enable);
 		menu.add(new MenuItem("------"));
 		menu.add(build);
+		menu.add(exit);
 		icon.setPopupMenu(menu);
 	}
 	
-	
-	private static class TrayIconMouseListener extends MouseAdapter{
-		@Override
-		public void mouseClicked(MouseEvent e) {
-			if(e.getClickCount() >= 2){
-				System.exit(0);
-			}
-		}
-	}
-
 	class TrayIconUpdater{
 		 @Subscribe 
 		 public void buildStatusChanged(BuildStateChangedEvent event) {
