@@ -7,7 +7,7 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status.Family;
 
-import br.com.instaweb.jenkins.monitor.bean.BuildInfo;
+import br.com.instaweb.jenkins.monitor.bean.JenkinsJob;
 import br.com.instaweb.jenkins.monitor.utils.Resources;
 
 import com.google.inject.Inject;
@@ -29,9 +29,9 @@ public class JenkinsRestServiceClient implements JenkinsService{
 		this.disableUrl = resources.text("/disable.txt");
 	}
 
-	public BuildInfo getCurrentBuild() {
+	public JenkinsJob getCurrentBuild() {
 		WebTarget target = client.target(statusUrl);
-		BuildInfo info = target.request().get(BuildInfo.class);
+		JenkinsJob info = target.request().get(JenkinsJob.class);
 		return info;
 	}
 

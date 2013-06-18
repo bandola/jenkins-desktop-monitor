@@ -1,10 +1,10 @@
 package br.com.instaweb.jenkins.monitor.service;
 
-import br.com.instaweb.jenkins.monitor.bean.BuildInfo;
+import br.com.instaweb.jenkins.monitor.bean.JenkinsJob;
 
 public interface JenkinsService {
 	 
-	BuildInfo getCurrentBuild();
+	JenkinsJob getCurrentBuild();
 	
 	void disableBuild();
 

@@ -6,18 +6,18 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import br.com.instaweb.jenkins.monitor.ui.tray.Icon;
 
 @JsonIgnoreProperties(ignoreUnknown = true)	
-public class BuildInfo {
+public class JenkinsJob {
 
-	public int number;
+	@JsonProperty("lastBuild")
+	private Build lastBuild;
 	
 	@JsonProperty("color")
 	private BuildState state;
-	
-	public BuildInfo(){
-		
+
+	public JenkinsJob(){
 	}
-	public BuildInfo(int number, BuildState state){
-		this.number = number;
+
+	public JenkinsJob(BuildState state){
 		this.state = state;
 	}
 	
@@ -27,6 +27,22 @@ public class BuildInfo {
 	
 	public Icon icon(){
 		return state.getIcon();
+	}
+	
+	public Build getLastBuild() {
+		return lastBuild;
+	}
+	
+	public void setState(BuildState state) {
+		this.state = state;
+	}
+	
+	public void setLastBuild(Build lastBuild) {
+		this.lastBuild = lastBuild;
+	}
+	
+	public int lastBuildNumber(){
+		return lastBuild == null ? -1 : lastBuild.getNumber(); 
 	}
 	
 	

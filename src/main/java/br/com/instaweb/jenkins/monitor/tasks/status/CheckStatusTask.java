@@ -2,8 +2,8 @@ package br.com.instaweb.jenkins.monitor.tasks.status;
 
 import java.util.TimerTask;
 
-import br.com.instaweb.jenkins.monitor.bean.BuildInfo;
 import br.com.instaweb.jenkins.monitor.bean.BuildState;
+import br.com.instaweb.jenkins.monitor.bean.JenkinsJob;
 import br.com.instaweb.jenkins.monitor.service.JenkinsService;
 
 import com.google.common.eventbus.EventBus;
@@ -14,6 +14,7 @@ public class CheckStatusTask extends TimerTask{
 	private EventBus eventBus;
 	private JenkinsService service;
 	private BuildState lastBuild = BuildState.unknown;
+	private int lastFailedBuildNumber = -1; 
 	
 	@Inject
 	public CheckStatusTask(EventBus eventBus, JenkinsService client) {
@@ -23,14 +24,21 @@ public class CheckStatusTask extends TimerTask{
 
 	@Override
 	public void run() {
-		BuildInfo info = service.getCurrentBuild();
-		if(buildStatusHasChanged(info)){
-			eventBus.post(new BuildStateChangedEvent(info.getState(), lastBuild));
+		JenkinsJob currentJob = service.getCurrentBuild();
+		if(buildStatusHasChanged(currentJob)){
+			eventBus.post(new BuildStateChangedEvent(currentJob.getState(), lastBuild));
 		}
-		lastBuild = info.getState();
+		
+		if(lastFailedBuildNumber != currentJob.lastBuildNumber() && (currentJob.getState() == BuildState.red)){
+			eventBus.post(new BuildErrorEvent(currentJob));
+			lastFailedBuildNumber = currentJob.lastBuildNumber();
+		}
+		
+		lastBuild = currentJob.getState();
+
 	}
 	
-	private boolean buildStatusHasChanged(BuildInfo info){
+	private boolean buildStatusHasChanged(JenkinsJob info){
 		return info.getState() != lastBuild;
 	}
 

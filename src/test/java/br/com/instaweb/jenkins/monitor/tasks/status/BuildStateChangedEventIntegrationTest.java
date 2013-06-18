@@ -25,7 +25,7 @@ public class BuildStateChangedEventIntegrationTest {
 	public void canCaptureEvent() throws Exception {
 		eventBus.register(new BuildStateObserver());
 		eventBus.post(new BuildStateChangedEvent(BuildState.aborted, BuildState.blue));
-		assertThat(capturedEvent.getCurrentResult(), is(BuildState.aborted));
+		assertThat(capturedEvent.getCurrent(), is(BuildState.aborted));
 		assertThat(capturedEvent.getPrevious(), is(BuildState.blue));
 	}
 	
