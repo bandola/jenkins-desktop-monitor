@@ -3,10 +3,10 @@ package br.com.instaweb.jenkins.monitor.service;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-import java.util.TimerTask;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import br.com.instaweb.jenkins.monitor.tasks.Task;
 
 public class JenkinsPollerTest {
 
@@ -17,7 +17,7 @@ public class JenkinsPollerTest {
 	@Before
 	public void setUp(){
 		pollTask = new StubTask();
-		poller = new JenkinsPoller(pollTask);
+		poller = new JenkinsPoller(pollTask, 100);
 	}
 	
 	@Test
@@ -27,10 +27,11 @@ public class JenkinsPollerTest {
 		assertThat("Task should have been executed", executed, is(true));
 	}
 	
-	private class StubTask extends TimerTask{
+	private class StubTask implements Task{
 		@Override
-		public void run() {
+		public void execute() {
 			executed = true;
 		}
 	}
+
 }

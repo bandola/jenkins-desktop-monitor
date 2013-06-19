@@ -2,8 +2,6 @@ package br.com.instaweb.jenkins.monitor;
 
 import static com.google.inject.Scopes.SINGLETON;
 
-import java.util.TimerTask;
-
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 
@@ -11,6 +9,7 @@ import org.glassfish.jersey.jackson.JacksonFeature;
 
 import br.com.instaweb.jenkins.monitor.service.JenkinsRestServiceClient;
 import br.com.instaweb.jenkins.monitor.service.JenkinsService;
+import br.com.instaweb.jenkins.monitor.tasks.Task;
 import br.com.instaweb.jenkins.monitor.tasks.status.CheckStatusTask;
 import br.com.instaweb.jenkins.monitor.ui.JenkinsMonitor;
 import br.com.instaweb.jenkins.monitor.ui.tray.AWTTrayManager;
@@ -35,7 +34,8 @@ public class JenkinsMonitorModule extends AbstractModule {
         bind(CheckStatusTask.class).in(SINGLETON);
         bind(JenkinsService.class).to(JenkinsRestServiceClient.class).in(SINGLETON);
         bind(JenkinsMonitor.class).in(SINGLETON);
-        bind(TimerTask.class).annotatedWith(Names.named("jenkinsPollerTask")).to(CheckStatusTask.class);
+        bind(Task.class).annotatedWith(Names.named("jenkinsPollerTask")).to(CheckStatusTask.class);
+        bind(Integer.class).annotatedWith(Names.named("taskInterval")).toInstance(5000);
         bind(EventBus.class).in(SINGLETON);
         bind(Client.class).toInstance(client);
     }

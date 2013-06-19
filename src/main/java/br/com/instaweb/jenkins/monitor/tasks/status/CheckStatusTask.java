@@ -1,15 +1,14 @@
 package br.com.instaweb.jenkins.monitor.tasks.status;
 
-import java.util.TimerTask;
-
 import br.com.instaweb.jenkins.monitor.bean.BuildState;
 import br.com.instaweb.jenkins.monitor.bean.JenkinsJob;
 import br.com.instaweb.jenkins.monitor.service.JenkinsService;
+import br.com.instaweb.jenkins.monitor.tasks.Task;
 
 import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
 
-public class CheckStatusTask extends TimerTask{
+public class CheckStatusTask implements Task{
 
 	private EventBus eventBus;
 	private JenkinsService service;
@@ -23,7 +22,7 @@ public class CheckStatusTask extends TimerTask{
 	}
 
 	@Override
-	public void run() {
+	public void execute() {
 		JenkinsJob currentJob = service.getCurrentBuild();
 		if(buildStatusHasChanged(currentJob)){
 			eventBus.post(new BuildStateChangedEvent(currentJob.getState(), lastBuild));
