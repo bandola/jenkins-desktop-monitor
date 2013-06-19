@@ -11,4 +11,4 @@
 
 ---
 Context menu (still ugly as hell):
-![Building](http://bandola.github.com/jenkins-desktop-monitor/img/contex-menu.png)
+![Building](http://bandola.github.com/jenkins-desktop-monitor/img/context-menu.png)
