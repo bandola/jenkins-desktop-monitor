@@ -8,3 +8,7 @@
 | Building (previous build has failed)     | ![Building](http://bandola.github.com/jenkins-desktop-monitor/img/building-red.png) |
 | Building (previous build was aborted)     | ![Building](http://bandola.github.com/jenkins-desktop-monitor/img/building-gray.png) |
 | Build Failed | ![Building](http://bandola.github.com/jenkins-desktop-monitor/img/build-failed.png) |
+
+---
+Context menu (still ugly as hell):
+![Building](http://bandola.github.com/jenkins-desktop-monitor/img/contex-menu.png)
