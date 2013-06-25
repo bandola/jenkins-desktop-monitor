@@ -29,9 +29,10 @@ public class JenkinsPollerTest {
 	
 	private class StubTask implements Task{
 		@Override
-		public void execute() {
+		public void run() {
 			executed = true;
 		}
 	}
+	
 
 }

@@ -1,7 +1,5 @@
 package br.com.instaweb.jenkins.monitor.tasks;
 
-public interface Task {
+public interface Task extends Runnable {
 
-	void execute();
-	
 }

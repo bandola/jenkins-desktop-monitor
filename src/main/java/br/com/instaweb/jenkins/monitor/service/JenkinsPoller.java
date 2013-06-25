@@ -27,7 +27,7 @@ public class JenkinsPoller implements Runnable {
 			@Override
 			public void run() {
 				try{
-					task.execute();
+					task.run();
 				}catch (Exception e) {
 					System.err.println("Could not execute task " + task.toString() + ": " + e.getMessage());
 				}

@@ -22,7 +22,7 @@ public class CheckStatusTask implements Task{
 	}
 
 	@Override
-	public void execute() {
+	public void run() {
 		JenkinsJob currentJob = service.getCurrentBuild();
 		if(buildStatusHasChanged(currentJob)){
 			eventBus.post(new BuildStateChangedEvent(currentJob.getState(), lastBuild));
