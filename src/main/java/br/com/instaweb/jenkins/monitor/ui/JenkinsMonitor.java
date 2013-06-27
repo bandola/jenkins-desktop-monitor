@@ -1,8 +1,6 @@
 package br.com.instaweb.jenkins.monitor.ui;
 
 import java.awt.Desktop;
-import java.awt.MenuItem;
-import java.awt.PopupMenu;
 import java.awt.TrayIcon;
 import java.awt.TrayIcon.MessageType;
 import java.awt.event.ActionEvent;
@@ -31,14 +29,12 @@ public class JenkinsMonitor{
 	private EventBus eventBus;
 	private TrayIcon icon;
 	private JenkinsPoller poller;
-	private JenkinsService service;
 	
 	@Inject
 	public JenkinsMonitor(TrayManager manager, JenkinsService service, JenkinsPoller poller, EventBus eventBus){
 		this.manager = manager;
 		this.eventBus = eventBus;
 		this.poller = poller;
-		this.service = service;
 		init();
 	} 
 	
@@ -47,50 +43,6 @@ public class JenkinsMonitor{
 		SwingUtilities.invokeLater(poller);
 		eventBus.register(new TrayIconUpdater());
 		eventBus.register(new BuildNotifier());
-		
-		PopupMenu menu = new PopupMenu(); 
-		MenuItem disableBuild = new MenuItem("disable-build");
-		disableBuild.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				service.disableBuild();
-			}
-		});
-
-		MenuItem enable = new MenuItem("enable-build");
-		enable.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				service.enableBuild();
-			}
-		});
-		
-		MenuItem build = new MenuItem("build");
-		build.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				service.build();
-			}
-		});
-
-		MenuItem exit = new MenuItem("exit");
-		exit.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		
-		menu.add(disableBuild);
-		menu.add(enable);
-		menu.add(new MenuItem("------"));
-		menu.add(build);
-		menu.add(exit);
-		icon.setPopupMenu(menu);
 	}
 	
 	class TrayIconUpdater{

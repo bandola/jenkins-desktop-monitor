@@ -22,8 +22,28 @@ public class CheckStatusTask implements Task{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void run() {
 		JenkinsJob currentJob = service.getCurrentBuild();
+=======
+	public void execute() {
+		JenkinsJob currentJob = null;
+		try{
+			currentJob = checkJenkinsStatus();
+		}catch (Exception e) {
+			throw new RuntimeException(e);
+		}finally{
+			dispatchBuildStateEvents(currentJob);
+			updateLastBuildState(currentJob);
+		}
+	}
+	
+	private void updateLastBuildState(JenkinsJob currentJob) {
+		lastBuild = currentJob == null ? BuildState.unknown : currentJob.getState();		
+	}
+
+	private void dispatchBuildStateEvents(JenkinsJob currentJob) {
+>>>>>>> JenkinsMonitor had too many responsibilities
 		if(buildStatusHasChanged(currentJob)){
 			eventBus.post(new BuildStateChangedEvent(currentJob.getState(), lastBuild));
 		}
@@ -32,13 +52,16 @@ public class CheckStatusTask implements Task{
 			eventBus.post(new BuildErrorEvent(currentJob));
 			lastFailedBuildNumber = currentJob.lastBuildNumber();
 		}
-		
-		lastBuild = currentJob.getState();
-
 	}
-	
-	private boolean buildStatusHasChanged(JenkinsJob info){
-		return info.getState() != lastBuild;
+
+	private JenkinsJob checkJenkinsStatus() {
+		JenkinsJob currentJob = service.getCurrentBuild();
+		return currentJob;
+	}
+
+	private boolean buildStatusHasChanged(JenkinsJob currentJob){
+		BuildState state = (currentJob == null ? BuildState.unknown : currentJob.getState());
+		return state != lastBuild;
 	}
 
 }
