@@ -22,10 +22,6 @@ public class CheckStatusTask implements Task{
 	}
 
 	@Override
-<<<<<<< HEAD
-	public void run() {
-		JenkinsJob currentJob = service.getCurrentBuild();
-=======
 	public void execute() {
 		JenkinsJob currentJob = null;
 		try{
@@ -43,7 +39,6 @@ public class CheckStatusTask implements Task{
 	}
 
 	private void dispatchBuildStateEvents(JenkinsJob currentJob) {
->>>>>>> JenkinsMonitor had too many responsibilities
 		if(buildStatusHasChanged(currentJob)){
 			eventBus.post(new BuildStateChangedEvent(currentJob.getState(), lastBuild));
 		}
