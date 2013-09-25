@@ -1,55 +1,5 @@
 #include "pitches.h"
-int GAMEOVER_MELODY[] = {
-  NOTE_C4, NOTE_G3,NOTE_G3, NOTE_A3, NOTE_G3,0, NOTE_B3, NOTE_C4
-};
-
-int GAMEOVER_TEMPO[] = {
-  4,8,8,4,4,4,4,4
-};
-
-int MARIO_MELODY[] = {
-  NOTE_C4, NOTE_C5, NOTE_A3, NOTE_A4, 
-  NOTE_AS3, NOTE_AS4, 0,
-  0,
-  NOTE_C4, NOTE_C5, NOTE_A3, NOTE_A4, 
-  NOTE_AS3, NOTE_AS4, 0,
-  0,
-  NOTE_F3, NOTE_F4, NOTE_D3, NOTE_D4,
-  NOTE_DS3, NOTE_DS4, 0,
-  0,
-  NOTE_F3, NOTE_F4, NOTE_D3, NOTE_D4,
-  NOTE_DS3, NOTE_DS4, 0,
-  0, NOTE_DS4, NOTE_CS4, NOTE_D4,
-  NOTE_CS4, NOTE_DS4, 
-  NOTE_DS4, NOTE_GS3,
-  NOTE_G3, NOTE_CS4,
-  NOTE_C4, NOTE_FS4,NOTE_F4, NOTE_E3, NOTE_AS4, NOTE_A4,
-  NOTE_GS4, NOTE_DS4, NOTE_B3,
-  NOTE_AS3, NOTE_A3, NOTE_GS3,
-  0, 0, 0
-};
-
-int MARIO_TEMPO[] = {
-  12, 12, 12, 12, 
-  12, 12, 6,
-  3,
-  12, 12, 12, 12, 
-  12, 12, 6,
-  3,
-  12, 12, 12, 12, 
-  12, 12, 6,
-  3,
-  12, 12, 12, 12, 
-  12, 12, 6,
-  6, 18, 18, 18,
-  6, 6,
-  6, 6,
-  6, 6,
-  18, 18, 18,18, 18, 18,
-  10, 10, 10,
-  10, 10, 10,
-  3, 3, 3
-};
+#include "mario.h"
 
 int red = 13;
 int green = 12;
@@ -82,7 +32,6 @@ void processSerialInput(){
     switch (inByte) {
     case 'r':    
       turnOnSingleLed(red);
-      playImperialMarch();
       break;
     case 'g':    
       turnOnSingleLed(green);
@@ -90,12 +39,15 @@ void processSerialInput(){
     case 'y':    
       turnOnSingleLed(yellow);
       break;
+    case 'm':    
+      playImperialMarch();
+      break;
     case 'b':    
       blinking = true;
       break;
     case 'o':
       turnOffAllLeds();
-      Serial.write("k");         
+      break;
     } 
   }
 }
@@ -108,9 +60,9 @@ void turnOffAllLeds(){
 
 void blinkCurrentLed(){
   digitalWrite(currentLed, LOW);
-  delay(1000);
+  delay(500);
   digitalWrite(currentLed, HIGH);
-  delay(1000);
+  delay(500);
 }
 void turnOnSingleLed(int led){
   turnOffAllLeds();
@@ -119,17 +71,11 @@ void turnOnSingleLed(int led){
   digitalWrite(led, HIGH);
 }
 
-void playGameOverSong(){
-  playSong(GAMEOVER_MELODY, GAMEOVER_TEMPO, sizeof(GAMEOVER_MELODY)); 
-}
-
 void playMarioMainTheme(){
   playSong(MARIO_MELODY, MARIO_TEMPO, sizeof(MARIO_MELODY)); 
 }
 
-void beep (int frequencyInHertz, long timeInMilliseconds)
-{ 
-   
+void beep (int frequencyInHertz, long timeInMilliseconds){ 
     int x; 	 
     long delayAmount = (long)(1000000/frequencyInHertz);
     long loopTime = (long)((timeInMilliseconds*1000)/(delayAmount*2));
@@ -140,8 +86,7 @@ void beep (int frequencyInHertz, long timeInMilliseconds)
         digitalWrite(buzzer,LOW);
         delayMicroseconds(delayAmount);
     } 	 
-    
-    
+  
     delay(20);
     //a little delay to make all notes sound separate
 } 	 
@@ -183,5 +128,15 @@ void playSong(int melody[], int tempo[], int size){
     noTone(10);
   }
 }
+
+int GAMEOVER_MELODY[] = {
+  NOTE_C4, NOTE_G3,NOTE_G3, NOTE_A3, NOTE_G3,0, NOTE_B3, NOTE_C4
+};
+
+int GAMEOVER_TEMPO[] = {
+  4,8,8,4,4,4,4,4
+};
+
+
 
 
