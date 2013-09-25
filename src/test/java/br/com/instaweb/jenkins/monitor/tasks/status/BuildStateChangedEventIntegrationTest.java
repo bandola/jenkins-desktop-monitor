@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.instaweb.jenkins.monitor.bean.BuildState;
+import br.com.instaweb.jenkins.monitor.events.BuildStateChangedEvent;
 
 import com.google.common.eventbus.EventBus;
 import com.google.common.eventbus.Subscribe;

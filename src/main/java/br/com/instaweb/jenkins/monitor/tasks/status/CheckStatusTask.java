@@ -2,6 +2,8 @@ package br.com.instaweb.jenkins.monitor.tasks.status;
 
 import br.com.instaweb.jenkins.monitor.bean.BuildState;
 import br.com.instaweb.jenkins.monitor.bean.JenkinsJob;
+import br.com.instaweb.jenkins.monitor.events.BuildErrorEvent;
+import br.com.instaweb.jenkins.monitor.events.BuildStateChangedEvent;
 import br.com.instaweb.jenkins.monitor.service.JenkinsService;
 import br.com.instaweb.jenkins.monitor.tasks.Task;
 
@@ -22,7 +24,7 @@ public class CheckStatusTask implements Task{
 	}
 
 	@Override
-	public void execute() {
+	public void run() {
 		JenkinsJob currentJob = null;
 		try{
 			currentJob = checkJenkinsStatus();
@@ -58,5 +60,4 @@ public class CheckStatusTask implements Task{
 		BuildState state = (currentJob == null ? BuildState.unknown : currentJob.getState());
 		return state != lastBuild;
 	}
-
 }

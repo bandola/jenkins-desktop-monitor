@@ -1,4 +1,4 @@
-package br.com.instaweb.jenkins.monitor.tasks.status;
+package br.com.instaweb.jenkins.monitor.events;
 
 import br.com.instaweb.jenkins.monitor.bean.JenkinsJob;
 

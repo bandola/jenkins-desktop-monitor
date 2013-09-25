@@ -18,6 +18,8 @@ import java.awt.event.ActionListener;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.google.common.eventbus.EventBus;
+
 import br.com.instaweb.jenkins.monitor.service.JenkinsService;
 import br.com.instaweb.jenkins.monitor.ui.tray.AWTTrayManager;
 import br.com.instaweb.jenkins.monitor.ui.tray.Icon;
@@ -31,7 +33,7 @@ public class AWTTrayManagerTest {
 	@Before
 	public void setUp(){
 		service = mock(JenkinsService.class);
-		manager = new AWTTrayManager(service);
+		manager = new AWTTrayManager(service, new EventBus());
 	}
 	
 	@Test

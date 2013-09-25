@@ -14,6 +14,7 @@ import org.mockito.Mockito;
 
 import br.com.instaweb.jenkins.monitor.bean.BuildState;
 import br.com.instaweb.jenkins.monitor.bean.JenkinsJob;
+import br.com.instaweb.jenkins.monitor.events.BuildStateChangedEvent;
 import br.com.instaweb.jenkins.monitor.service.JenkinsService;
 
 import com.google.common.eventbus.EventBus;
