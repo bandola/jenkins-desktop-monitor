@@ -19,4 +19,5 @@ public class BuildStateChangedEvent {
 	public BuildState getCurrent() {
 		return current;
 	}
+	
 }

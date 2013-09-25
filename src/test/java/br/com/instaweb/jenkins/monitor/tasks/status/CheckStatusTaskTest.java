@@ -102,7 +102,7 @@ public class CheckStatusTaskTest {
 	private void executeBuilds(JenkinsJob[] builds) {
 		when(service.getCurrentBuild()).thenReturn(builds[0], Arrays.copyOfRange(builds, 1, builds.length));
 		for(int i = 0; i < builds.length; i++){
-			task.execute();
+			task.run();
 		}
 		verify(service, times(builds.length)).getCurrentBuild();
 	}

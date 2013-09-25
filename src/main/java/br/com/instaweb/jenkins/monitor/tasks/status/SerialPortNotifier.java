@@ -53,10 +53,22 @@ public class SerialPortNotifier implements SerialPortEventListener {
 	public void buildStatusChanged(BuildStateChangedEvent event) throws IOException {
 		checkArgument(BUILDSTATE_TO_SERIAL_COMMAND.containsKey(event.getCurrent()), "Serial command not found for status " + event.getCurrent());
 		output.write(BUILDSTATE_TO_SERIAL_COMMAND.get(event.getCurrent()).getBytes());
+		if(buildFailed(event)){
+			output.write('m');
+		}
+	}
+	
+	private boolean buildFailed(BuildStateChangedEvent event){
+		return (event.getCurrent() == BuildState.red
+				&& (event.getPrevious() == BuildState.blue 
+					|| event.getPrevious() == BuildState.blue_anime
+					|| event.getPrevious() == BuildState.yellow
+					|| event.getPrevious() == BuildState.yellow_anime
+				));
 	}
 
 	public void initialize() throws Exception {
-		CommPortIdentifier portId = CommPortIdentifier.getPortIdentifier("COM8");
+		CommPortIdentifier portId = CommPortIdentifier.getPortIdentifier("COM3");
 		checkNotNull(portId, "Could not find COM port.");
 		serialPort = (SerialPort) portId.open(this.getClass().getName(), TIME_OUT);
 		serialPort.setSerialPortParams(DATA_RATE, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
