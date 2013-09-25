@@ -7,6 +7,7 @@ import javax.swing.SwingUtilities;
 import br.com.instaweb.jenkins.monitor.service.JenkinsPoller;
 import br.com.instaweb.jenkins.monitor.service.JenkinsService;
 import br.com.instaweb.jenkins.monitor.tasks.status.BuildErrorNotifier;
+import br.com.instaweb.jenkins.monitor.tasks.status.SerialPortNotifier;
 import br.com.instaweb.jenkins.monitor.tasks.status.TrayIconUpdater;
 import br.com.instaweb.jenkins.monitor.ui.tray.Icon;
 import br.com.instaweb.jenkins.monitor.ui.tray.TrayManager;
@@ -34,6 +35,7 @@ public class JenkinsMonitor{
 		SwingUtilities.invokeLater(poller);
 		eventBus.register(new TrayIconUpdater(manager, icon));
 		eventBus.register(new BuildErrorNotifier(icon));
+		eventBus.register(new SerialPortNotifier());
 	}
 	
 }
