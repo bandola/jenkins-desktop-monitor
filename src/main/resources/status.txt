@@ -1,1 +1,1 @@
-http://s141:8080/job/marcopolo-spv/api/json
+http://10.0.100.94:8080/job/marcopolo-spv/api/json

@@ -11,16 +11,19 @@ import java.awt.event.ActionListener;
 
 import br.com.instaweb.jenkins.monitor.service.JenkinsService;
 
+import com.google.common.eventbus.EventBus;
 import com.google.inject.Inject;
 
 
 public class AWTTrayManager implements TrayManager {
 	
 	private JenkinsService service;
+	private EventBus eventBus;
 	
 	@Inject
-	public AWTTrayManager(JenkinsService service){
+	public AWTTrayManager(JenkinsService service, EventBus eventBus){
 		this.service = service;
+		this.eventBus = eventBus;
 	}
 	
 	@Override
