@@ -55,6 +55,8 @@ public class SerialPortNotifier implements SerialPortEventListener {
 		output.write(BUILDSTATE_TO_SERIAL_COMMAND.get(event.getCurrent()).getBytes());
 		if(buildFailed(event)){
 			output.write('m');
+		}else if(buildSucceeded(event)){
+			output.write('M');
 		}
 	}
 	
@@ -65,6 +67,15 @@ public class SerialPortNotifier implements SerialPortEventListener {
 					|| event.getPrevious() == BuildState.yellow
 					|| event.getPrevious() == BuildState.yellow_anime
 				));
+	}
+
+	private boolean buildSucceeded(BuildStateChangedEvent event){
+		return (event.getCurrent() == BuildState.blue
+				&& (event.getPrevious() == BuildState.red 
+				|| event.getPrevious() == BuildState.red_anime
+				|| event.getPrevious() == BuildState.yellow
+				|| event.getPrevious() == BuildState.yellow_anime
+			  	));
 	}
 
 	public void initialize() throws Exception {
