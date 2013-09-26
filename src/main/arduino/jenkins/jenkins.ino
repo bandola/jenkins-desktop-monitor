@@ -41,6 +41,10 @@ void processSerialInput(){
       break;
     case 'm':    
       playImperialMarch();
+    case 'M':    
+      playSong(MARI0_MAIN_THEME, MARI0_MAIN_THEME_TEMPO, sizeof(MARI0_MAIN_THEME)); 
+    case 'X':    
+      playSong(MARIO_UNDERWORLD, MARIO_UNDERWORLD_TEMPO, sizeof(MARIO_UNDERWORLD)); 
       break;
     case 'b':    
       blinking = true;
@@ -69,10 +73,6 @@ void turnOnSingleLed(int led){
   blinking = false;
   currentLed = led;
   digitalWrite(led, HIGH);
-}
-
-void playMarioMainTheme(){
-  playSong(MARIO_MELODY, MARIO_TEMPO, sizeof(MARIO_MELODY)); 
 }
 
 void beep (int frequencyInHertz, long timeInMilliseconds){ 
@@ -129,13 +129,6 @@ void playSong(int melody[], int tempo[], int size){
   }
 }
 
-int GAMEOVER_MELODY[] = {
-  NOTE_C4, NOTE_G3,NOTE_G3, NOTE_A3, NOTE_G3,0, NOTE_B3, NOTE_C4
-};
-
-int GAMEOVER_TEMPO[] = {
-  4,8,8,4,4,4,4,4
-};
 
 
 

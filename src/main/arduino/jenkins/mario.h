@@ -1,4 +1,18 @@
-int MARIO_MELODY[] = {
+int MARI0_MAIN_THEME[] = {
+  NOTE_E6, NOTE_E6, 0, NOTE_E6, 
+  0, NOTE_C6, NOTE_E6, 0,
+  NOTE_G6, 0, 0,  0,
+  NOTE_G5, 0, 0, 0
+};
+
+int MARI0_MAIN_THEME_TEMPO[] = {
+  10, 10, 10, 10, 
+  10, 10, 10, 10,
+  10, 10, 10, 10,
+  10, 10, 10, 10
+};
+
+int MARIO_UNDERWORLD[] = {
   NOTE_C4, NOTE_C5, NOTE_A3, NOTE_A4, 
   NOTE_AS3, NOTE_AS4, 0,
   0,
@@ -20,7 +34,7 @@ int MARIO_MELODY[] = {
   0, 0, 0
 };
 
-int MARIO_TEMPO[] = {
+int MARIO_UNDERWORLD_TEMPO[] = {
   12, 12, 12, 12, 
   12, 12, 6,
   3,
