@@ -41,8 +41,10 @@ void processSerialInput(){
       break;
     case 'm':    
       playImperialMarch();
+      break;
     case 'M':    
       playSong(MARI0_MAIN_THEME, MARI0_MAIN_THEME_TEMPO, sizeof(MARI0_MAIN_THEME)); 
+      break;
     case 'X':    
       playSong(MARIO_UNDERWORLD, MARIO_UNDERWORLD_TEMPO, sizeof(MARIO_UNDERWORLD)); 
       break;
