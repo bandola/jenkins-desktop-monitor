@@ -56,8 +56,21 @@ public class SerialPortNotifier implements SerialPortEventListener {
 		if(buildFailed(event)){
 			output.write('m');
 		}else if(buildSucceeded(event)){
-			output.write('M');
+			output.write('X');
 		}
+	}
+
+	@Subscribe
+	public void buildStatusChanged(PullRequestEvent event) throws IOException {
+		if(event.hasPullRequests()){
+			output.write('1');
+		}else {
+			output.write('0');
+		}
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(System.getProperty("java.library.path"));
 	}
 	
 	private boolean buildFailed(BuildStateChangedEvent event){
